@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c65qnkmo1kb15"]
+[gd_scene load_steps=3 format=3 uid="uid://c65qnkmo1kb15"]
 
 [ext_resource type="Script" path="res://Assets/Code/top_bar.gd" id="1_ny2q4"]
+[ext_resource type="PackedScene" uid="uid://beunkau24o6h8" path="res://Scenes/Popups/settings.tscn" id="2_a41ka"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -40,9 +41,10 @@ offset_top = 90.0
 offset_right = 346.0
 offset_bottom = 937.0
 
-[node name="Button" type="Button" parent="Panel/side-bar/VBoxContainer"]
+[node name="Add" type="Button" parent="Panel/side-bar/VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "+"
 
 [node name="mian-area" type="Panel" parent="Panel"]
@@ -63,13 +65,30 @@ script = ExtResource("1_ny2q4")
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/top-bar"]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 7.0
+offset_top = 8.0
 offset_right = 1858.0
-offset_bottom = 74.0
+offset_bottom = 75.0
+theme_override_constants/separation = 10
 
-[node name="nav-button" type="Button" parent="Panel/top-bar/HBoxContainer"]
+[node name="Exit" type="Button" parent="Panel/top-bar/HBoxContainer"]
 custom_minimum_size = Vector2(67, 0)
 layout_mode = 2
-text = "|||"
+theme_override_font_sizes/font_size = 25
+text = "X"
 
-[connection signal="pressed" from="Panel/top-bar/HBoxContainer/nav-button" to="Panel/top-bar" method="_on_navbutton_pressed"]
+[node name="Settings" type="Button" parent="Panel/top-bar/HBoxContainer"]
+custom_minimum_size = Vector2(67, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "S"
+
+[node name="settings" parent="Panel/top-bar" instance=ExtResource("2_a41ka")]
+visible = false
+layout_mode = 1
+offset_left = -21.0
+offset_top = -15.0
+offset_right = -21.0
+offset_bottom = -15.0
+
+[connection signal="pressed" from="Panel/top-bar/HBoxContainer/Exit" to="Panel/top-bar" method="_on_exit_pressed"]
+[connection signal="pressed" from="Panel/top-bar/HBoxContainer/Settings" to="Panel/top-bar" method="_on_settings_pressed"]

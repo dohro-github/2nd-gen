@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://beunkau24o6h8"]
+
+[ext_resource type="Script" path="res://Assets/Code/settings.gd" id="1_u6856"]
+[ext_resource type="Theme" uid="uid://jrn7oyhrtpqm" path="res://Assets/Themes/UI-theme.tres" id="2_x8oky"]
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u6856")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 54.0
+offset_right = 1824.0
+offset_bottom = 1026.0
+theme = ExtResource("2_x8oky")
+
+[node name="close" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 1633.0
+offset_top = 21.0
+offset_right = 1708.0
+offset_bottom = 96.0
+text = "X"
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 23.0
+offset_right = 376.0
+offset_bottom = 92.0
+theme_override_font_sizes/font_size = 50
+text = "Settings Menu"
+
+[connection signal="pressed" from="Panel/close" to="." method="_on_close_pressed"]
