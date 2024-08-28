@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c65qnkmo1kb15"]
+[gd_scene load_steps=2 format=3 uid="uid://c65qnkmo1kb15"]
 
 [ext_resource type="Script" path="res://Assets/Code/top_bar.gd" id="1_ny2q4"]
-[ext_resource type="PackedScene" uid="uid://b63y0wbai08ng" path="res://Scenes/Popups/nav-drawer.tscn" id="1_pyhec"]
-[ext_resource type="Theme" uid="uid://jrn7oyhrtpqm" path="res://Assets/Themes/UI-theme.tres" id="2_mxdq6"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -14,69 +12,63 @@ grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 
 [node name="side-bar" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 80.0
-offset_right = 227.0
-offset_bottom = 633.0
+offset_left = 20.0
+offset_top = 115.0
+offset_right = 374.0
+offset_bottom = 1060.0
 
 [node name="Label" type="Label" parent="Panel/side-bar"]
 layout_mode = 0
-offset_top = 4.0
-offset_right = 212.0
-offset_bottom = 55.0
-theme_override_font_sizes/font_size = 30
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 325.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 50
 text = "Instruments"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/side-bar"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 61.0
-offset_right = 206.0
-offset_bottom = 549.0
+offset_left = 9.0
+offset_top = 90.0
+offset_right = 346.0
+offset_bottom = 937.0
 
 [node name="Button" type="Button" parent="Panel/side-bar/VBoxContainer"]
-custom_minimum_size = Vector2(0, 45)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 text = "+"
 
 [node name="mian-area" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 242.0
-offset_top = 80.0
-offset_right = 1137.0
-offset_bottom = 633.0
+offset_left = 394.0
+offset_top = 115.0
+offset_right = 1900.0
+offset_bottom = 1060.0
 
 [node name="top-bar" type="Panel" parent="Panel"]
 layout_mode = 0
-offset_left = 15.0
+offset_left = 20.0
 offset_top = 15.0
-offset_right = 1137.0
-offset_bottom = 65.0
+offset_right = 1900.0
+offset_bottom = 98.0
 script = ExtResource("1_ny2q4")
-
-[node name="Nav-drawer" parent="Panel/top-bar" instance=ExtResource("1_pyhec")]
-visible = false
-layout_mode = 1
-offset_top = 57.0
-offset_bottom = 57.0
-theme = ExtResource("2_mxdq6")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/top-bar"]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 1117.0
-offset_bottom = 45.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 1858.0
+offset_bottom = 74.0
 
 [node name="nav-button" type="Button" parent="Panel/top-bar/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
+custom_minimum_size = Vector2(67, 0)
 layout_mode = 2
 text = "|||"
 
