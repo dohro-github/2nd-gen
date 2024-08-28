@@ -4,7 +4,7 @@
 
 [node name="intrument" type="Panel"]
 custom_minimum_size = Vector2(0, 60)
-offset_right = 377.0
+offset_right = 337.0
 offset_bottom = 60.0
 script = ExtResource("1_euvnw")
 

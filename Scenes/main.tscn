@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c65qnkmo1kb15"]
+[gd_scene load_steps=6 format=3 uid="uid://c65qnkmo1kb15"]
 
 [ext_resource type="Script" path="res://Assets/Code/top_bar.gd" id="1_ny2q4"]
 [ext_resource type="Script" path="res://Assets/Code/main.gd" id="1_y2syh"]
 [ext_resource type="PackedScene" uid="uid://beunkau24o6h8" path="res://Scenes/Popups/settings.tscn" id="2_a41ka"]
 [ext_resource type="PackedScene" uid="uid://chxslwgvd7lrw" path="res://Scenes/button.tscn" id="2_wn0ho"]
+[ext_resource type="AudioStream" uid="uid://c32ymolm002py" path="res://Assets/Sounds/689111__gaijinbuzz__piano.wav" id="5_k6h3d"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -93,6 +94,9 @@ offset_left = -21.0
 offset_top = -15.0
 offset_right = -21.0
 offset_bottom = -15.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_k6h3d")
 
 [connection signal="pressed" from="Panel/side-bar/VBoxContainer/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Panel/top-bar/HBoxContainer/Exit" to="Panel/top-bar" method="_on_exit_pressed"]
