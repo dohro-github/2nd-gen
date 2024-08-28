@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://chxslwgvd7lrw"]
+
+[ext_resource type="Script" path="res://Assets/Code/intrument-button.gd" id="1_euvnw"]
+
+[node name="intrument" type="Panel"]
+custom_minimum_size = Vector2(0, 60)
+offset_right = 377.0
+offset_bottom = 60.0
+script = ExtResource("1_euvnw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 371.0
+offset_bottom = 55.0
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "X"
+
+[node name="TextEdit" type="TextEdit" parent="HBoxContainer"]
+custom_minimum_size = Vector2(205, 0)
+layout_mode = 2
+placeholder_text = "Name"
+virtual_keyboard_enabled = false
+
+[node name="settings" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "S"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]

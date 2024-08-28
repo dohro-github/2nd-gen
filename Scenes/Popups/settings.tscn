@@ -23,18 +23,70 @@ theme = ExtResource("2_x8oky")
 [node name="close" type="Button" parent="Panel"]
 layout_mode = 0
 offset_left = 1633.0
-offset_top = 21.0
+offset_top = 19.0
 offset_right = 1708.0
-offset_bottom = 96.0
+offset_bottom = 94.0
 text = "X"
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 31.0
-offset_top = 23.0
+offset_top = 26.0
 offset_right = 376.0
-offset_bottom = 92.0
+offset_bottom = 95.0
 theme_override_font_sizes/font_size = 50
 text = "Settings Menu"
+
+[node name="side-panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 164.0
+offset_right = 490.0
+offset_bottom = 1008.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="side-panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 364.0
+offset_bottom = 834.0
+theme_override_constants/separation = 15
+
+[node name="general" type="Button" parent="side-panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "General"
+
+[node name="sound" type="Button" parent="side-panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Sound"
+
+[node name="midi" type="Button" parent="side-panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Midi"
+
+[node name="main-panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 506.0
+offset_top = 164.0
+offset_right = 1803.0
+offset_bottom = 1008.0
+
+[node name="general" type="Control" parent="main-panel"]
+anchors_preset = 0
+offset_right = 1297.0
+offset_bottom = 844.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main-panel/general"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1287.0
+offset_bottom = 834.0
 
 [connection signal="pressed" from="Panel/close" to="." method="_on_close_pressed"]
