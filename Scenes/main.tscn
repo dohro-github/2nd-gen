@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://c65qnkmo1kb15"]
+
+[ext_resource type="Script" path="res://Assets/Code/top_bar.gd" id="1_ny2q4"]
+[ext_resource type="PackedScene" uid="uid://b63y0wbai08ng" path="res://Scenes/Popups/nav-drawer.tscn" id="1_pyhec"]
+[ext_resource type="Theme" uid="uid://jrn7oyhrtpqm" path="res://Assets/Themes/UI-theme.tres" id="2_mxdq6"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="side-bar" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 80.0
+offset_right = 227.0
+offset_bottom = 633.0
+
+[node name="mian-area" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 242.0
+offset_top = 80.0
+offset_right = 1137.0
+offset_bottom = 633.0
+
+[node name="top-bar" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 1137.0
+offset_bottom = 65.0
+script = ExtResource("1_ny2q4")
+
+[node name="Nav-drawer" parent="Panel/top-bar" instance=ExtResource("1_pyhec")]
+visible = false
+layout_mode = 1
+offset_top = 65.0
+offset_bottom = 65.0
+theme = ExtResource("2_mxdq6")
+
+[node name="nav-button" type="Button" parent="Panel/top-bar"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 47.0
+offset_bottom = 47.0
+text = "|||"
+
+[connection signal="pressed" from="Panel/top-bar/nav-button" to="Panel/top-bar" method="_on_navbutton_pressed"]
