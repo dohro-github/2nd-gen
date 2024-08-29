@@ -172,7 +172,35 @@ offset_bottom = 84.0
 theme_override_font_sizes/font_size = 50
 text = "Midi"
 
+[node name="enabled" type="Control" parent="main-panel/midi/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="main-panel/midi/VBoxContainer/enabled"]
+layout_mode = 2
+offset_top = 1.0
+offset_right = 1277.0
+offset_bottom = 76.0
+
+[node name="Label" type="Label" parent="main-panel/midi/VBoxContainer/enabled"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 170.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 40
+text = "Enabled"
+
+[node name="midi_enabled_button" type="Button" parent="main-panel/midi/VBoxContainer/enabled"]
+layout_mode = 0
+offset_left = 1209.0
+offset_top = 8.0
+offset_right = 1269.0
+offset_bottom = 68.0
+text = "FALSE"
+
 [connection signal="pressed" from="Panel/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="side-panel/VBoxContainer/general" to="." method="_on_general_pressed"]
 [connection signal="pressed" from="side-panel/VBoxContainer/sound" to="." method="_on_sound_pressed"]
 [connection signal="pressed" from="side-panel/VBoxContainer/midi" to="." method="_on_midi_pressed"]
+[connection signal="pressed" from="main-panel/midi/VBoxContainer/enabled/midi_enabled_button" to="." method="_on_midi_enabled_button_pressed"]

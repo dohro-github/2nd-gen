@@ -1,7 +1,7 @@
 extends Control
 
 @onready var side_bar_vbox = $"Panel/side-bar/VBoxContainer"
-@onready var piano = $AudioStreamPlayer2D
+#@onready var piano = $AudioStreamPlayer2D
 
 @export var spawn_button: PackedScene
 
