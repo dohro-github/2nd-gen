@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c65qnkmo1kb15"]
+[gd_scene load_steps=6 format=3 uid="uid://c65qnkmo1kb15"]
 
-[ext_resource type="Script" path="res://Assets/Code/top_bar.gd" id="1_ny2q4"]
 [ext_resource type="Script" path="res://Assets/Code/main.gd" id="1_y2syh"]
 [ext_resource type="PackedScene" uid="uid://beunkau24o6h8" path="res://Scenes/Popups/settings.tscn" id="2_a41ka"]
 [ext_resource type="PackedScene" uid="uid://chxslwgvd7lrw" path="res://Scenes/button.tscn" id="2_wn0ho"]
+[ext_resource type="Script" path="res://Assets/Code/menus.gd" id="3_vpjdm"]
+[ext_resource type="PackedScene" uid="uid://b63y0wbai08ng" path="res://Scenes/Popups/nav-drawer.tscn" id="5_m13q1"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -64,7 +65,6 @@ offset_left = 20.0
 offset_top = 15.0
 offset_right = 1900.0
 offset_bottom = 98.0
-script = ExtResource("1_ny2q4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/top-bar"]
 layout_mode = 0
@@ -74,11 +74,11 @@ offset_right = 1858.0
 offset_bottom = 75.0
 theme_override_constants/separation = 10
 
-[node name="Exit" type="Button" parent="Panel/top-bar/HBoxContainer"]
+[node name="nav_bar" type="Button" parent="Panel/top-bar/HBoxContainer"]
 custom_minimum_size = Vector2(67, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
-text = "X"
+text = "|||"
 
 [node name="Settings" type="Button" parent="Panel/top-bar/HBoxContainer"]
 custom_minimum_size = Vector2(67, 0)
@@ -86,14 +86,26 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "S"
 
-[node name="settings" parent="Panel/top-bar" instance=ExtResource("2_a41ka")]
+[node name="menus" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_vpjdm")
+
+[node name="settings" parent="menus" instance=ExtResource("2_a41ka")]
 visible = false
 layout_mode = 1
-offset_left = -21.0
-offset_top = -15.0
-offset_right = -21.0
-offset_bottom = -15.0
+offset_left = -1.0
+offset_right = -1.0
+
+[node name="Nav-drawer" parent="menus" instance=ExtResource("5_m13q1")]
+visible = false
+layout_mode = 1
+offset_left = 26.0
+offset_top = 121.0
+offset_right = 26.0
+offset_bottom = 121.0
 
 [connection signal="pressed" from="Panel/side-bar/VBoxContainer/Add" to="." method="_on_add_pressed"]
-[connection signal="pressed" from="Panel/top-bar/HBoxContainer/Exit" to="Panel/top-bar" method="_on_exit_pressed"]
-[connection signal="pressed" from="Panel/top-bar/HBoxContainer/Settings" to="Panel/top-bar" method="_on_settings_pressed"]
+[connection signal="pressed" from="Panel/top-bar/HBoxContainer/nav_bar" to="menus" method="_on_nav_bar_pressed"]
+[connection signal="pressed" from="Panel/top-bar/HBoxContainer/Settings" to="menus" method="_on_settings_pressed"]
