@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckximu68ne4uk"]
+
+[ext_resource type="Script" path="res://Assets/Code/new_project.gd" id="1_m42dx"]
+[ext_resource type="Theme" uid="uid://jrn7oyhrtpqm" path="res://Assets/Themes/UI-theme.tres" id="2_o6nyq"]
+
+[node name="new_project" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m42dx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 1600.0
+offset_bottom = 900.0
+theme = ExtResource("2_o6nyq")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 752.0
+offset_right = 1194.0
+offset_bottom = 854.0
+theme_override_font_sizes/font_size = 50
+text = "Create project"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
